@@ -38,25 +38,30 @@ function playGame() {
     }
   }
 
-  let humanSelection = getHumanChoice();
-  let computerSelection = getComputerChoice();
-  playRound(humanSelection, computerSelection);
+  for (let i = 1; i <= 3; i++) {
+    let humanSelection = getHumanChoice();
+    let computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
 
-  // Resultado final
-  console.log(`La computadora eligió: ${computerSelection}`);
-  console.log(`Tu escogiste: ${humanSelection}`);
+    // Resultado final
+    console.log(`La computadora eligió: ${computerSelection}`);
+    console.log(`Tu escogiste: ${humanSelection}`);
 
-  console.log(`Puntuacion: -Human: ${humanScore}, -Computer: ${computerScore}`);
+    console.log(
+      `Puntuacion: -Human: ${humanScore}, -Computer: ${computerScore}`,
+    );
+  }
+  // aprendiendo sobre arrays y intentando recorrer y aprender usar la funcion .map();
+  const resultados = ['ganaste', 'perdiste','empate'];
+  const resultadosElegantes = resultados.map(toUpper => {return toUpper.toUpperCase()});
 
   if (humanScore > computerScore) {
-    console.log(`Felicidades ganaste: ${humanScore} partidas`);
+    console.log(`Felicidades ${resultadosElegantes[0]}! ${humanScore} partidas`);
   } else if (humanScore < computerScore) {
-    console.log(`La computadora gano ${computerScore} partidas`);
+    console.log(`${resultadosElegantes[1]}, la comoputadora Gano ${computerScore} partidas`);
   } else {
-    console.log("Empataron!");
+    console.log(`${resultadosElegantes[2]}!`);
   }
 }
 
-console.log(playGame());
-console.log(playGame());
-console.log(playGame());
+playGame();
